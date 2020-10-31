@@ -18,7 +18,7 @@ class Csvquery < Formula
     gcc = Dir.glob('/usr/local/bin/gcc*').select{ |f| f =~ /gcc(-[0-9]+)?$/ }[0]
     gpp = Dir.glob('/usr/local/bin/g++*').select{ |f| f =~ /g\+\+(-[0-9]+)?$/ }[0]
     ncores = Etc.nprocessors
-    system { "CC" => gcc, "CXX" => gpp }, "cmake", "."
+    system({ "CC" => gcc, "CXX" => gpp }, "cmake", ".")
     system "make", "-j"+ncores.to_s
     cp_r "cql", prefix
   end
