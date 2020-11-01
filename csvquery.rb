@@ -19,7 +19,7 @@ class Csvquery < Formula
     gpp = Dir.glob('/usr/local/bin/g++*').select{ |f| f =~ /g\+\+(-[0-9]+)?$/ }[0]
     executionpath = `find -L /usr/local/include -name "*execution"`.split("\n").select{ |f| f =~ /c\+\+/}[0].chomp("/execution")
     #ncores = Etc.nprocessors
-    envs = {"CC" = gcc, "CXX" = gpp, "CXXFLAGS" = "-I#{executionpath}"}
+    envs = {"CC" => gcc, "CXX" => gpp, "CXXFLAGS" => "-I#{executionpath}"}
     system(envs, "cmake", ".")
     system "make" #, "-j"+ncores.to_s
     cp_r "cql", prefix
