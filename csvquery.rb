@@ -1,6 +1,5 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                https://rubydoc.brew.sh/Formula
-#require 'etc'
 class Csvquery < Formula
   desc "SQL interpreter for big csv files"
   homepage ""
@@ -18,10 +17,9 @@ class Csvquery < Formula
     gcc = Dir.glob('/usr/local/bin/gcc*').select{ |f| f =~ /gcc(-[0-9]+)?$/ }[0]
     gpp = Dir.glob('/usr/local/bin/g++*').select{ |f| f =~ /g\+\+(-[0-9]+)?$/ }[0]
     executionpath = `find -L /usr/local/include -name "*execution"`.split("\n").select{ |f| f =~ /c\+\+/}[0].chomp("/execution")
-    #ncores = Etc.nprocessors
-    `"CC=#{gcc} CXX=#{gpp} CXXFLAGS=-I#{executionpath} cmake .`
-    system "make" #, "-j"+ncores.to_s
-    cp_r "cql", prefix
+    system({"CC"=>gcc, "CXX"=>gpp, "CXXFLAGS"=>"-I#{executionpath}"}, "cmake", ",")
+    system "make"
+    bin.install "cql"
   end
 
 end
