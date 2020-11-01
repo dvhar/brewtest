@@ -17,9 +17,9 @@ class Csvquery < Formula
   def install
     gcc = Dir.glob('/usr/local/bin/gcc*').select{ |f| f =~ /gcc(-[0-9]+)?$/ }[0]
     gpp = Dir.glob('/usr/local/bin/g++*').select{ |f| f =~ /g\+\+(-[0-9]+)?$/ }[0]
-    executionpath = `find -L /usr/local/include -name "*execution"`.split("\n").select{ |f| f =~ /c\+\+/}
+    executionpath = `find -L /usr/local/include -name "*execution"`.split("\n").select{ |f| f =~ /c\+\+/}[0]
     ncores = Etc.nprocessors
-    system("CC = #{gcc} CXX = #{gpp} CXXFLAGS=-I#{executionpath} cmake", ".")
+    system("CC=#{gcc} CXX=#{gpp} CXXFLAGS=-I#{executionpath} cmake", ".")
     system "make", "-j"+ncores.to_s
     cp_r "cql", prefix
   end
