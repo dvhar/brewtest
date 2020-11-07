@@ -3,8 +3,8 @@
 class Csvquery < Formula
   desc "SQL interpreter for big csv files"
   homepage ""
-  url "https://github.com/dvhar/csvquery/archive/1.0.1.tar.gz"
-  sha256 "ca7db64111ebf9c0bac04b6bb79f98698c43396d851584daef922a39a28c2641"
+  url "https://github.com/dvhar/csvquery/archive/1.0.2.tar.gz"
+  sha256 "cf402c7318b225951694c56db3611a5447ce9f4497bab2ce33f9b7e442526086"
   license ""
 
   depends_on "gcc" => :build
