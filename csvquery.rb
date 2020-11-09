@@ -19,6 +19,7 @@ class Csvquery < Formula
     ENV["CC"] = gcc
     ENV["CXX"] = gpp
     ENV["CXXFLAGS"] = "-I#{executionpath}"
+    ENV["LDFLAGS"] = "/usr/local/lib"
     system "cmake", "."
     system "make"
     bin.install "cql"
