@@ -3,23 +3,14 @@
 class Csvquery < Formula
   desc "SQL interpreter for big csv files"
   homepage ""
-  url "https://github.com/dvhar/csvquery/archive/1.0.4.tar.gz"
-  sha256 "b4e809833beb2c062b1a87fa2e3b0f123714579de26765a8ab06ad19ab3c82ec"
+  url "https://github.com/dvhar/csvquery/archive/1.0.5.tar.gz"
+  sha256 "12e3e88dddafefe0cee48307e4ad4b8f631566123e0ca917010f4512152668bb"
   license ""
 
-  depends_on "gcc" => :build
   depends_on "cmake" => :build
-  depends_on "tbb"
   depends_on "boost"
 
   def install
-    gcc = Dir.glob('/usr/local/bin/gcc*').select{ |f| f =~ /gcc(-[0-9]+)?$/ }[0]
-    gpp = Dir.glob('/usr/local/bin/g++*').select{ |f| f =~ /g\+\+(-[0-9]+)?$/ }[0]
-    executionpath = `find -L /usr/local/include -name "*execution"`.split("\n").select{ |f| f =~ /c\+\+/}[0].chomp("/execution")
-    ENV["CC"] = gcc
-    ENV["CXX"] = gpp
-    ENV["CXXFLAGS"] = "-I#{executionpath}"
-    ENV["LDFLAGS"] = "/usr/local/lib"
     system "cmake", "."
     system "make"
     bin.install "cql"
