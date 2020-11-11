@@ -13,7 +13,8 @@ class Csvquery < Formula
   def install
     system "cmake", "."
     system "make"
-    bin.install "cql"
+    system "mv", "cql", "csvquery"
+    bin.install "csvquery"
   end
 
 end
