@@ -2,9 +2,9 @@
 #                https://rubydoc.brew.sh/Formula
 class Csvquery < Formula
   desc "SQL interpreter for big csv files"
-  homepage ""
-  url "https://github.com/dvhar/csvquery/archive/1.0.6.tar.gz"
-  sha256 "72bf5faaed9cc8e47083b4a1cfa054dde1da177ac8f9e197b4a80fae542654c3"
+  homepage "https://davosaur.com/csv"
+  url "https://github.com/dvhar/csvquery/archive/1.10.tar.gz"
+  sha256 "23888ec04b3b8a0784d0c0a41a4fdc9ec3a277bb489f142e9baad97bd3c0b698"
   license ""
 
   depends_on "cmake" => :build
