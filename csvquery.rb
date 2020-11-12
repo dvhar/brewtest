@@ -11,7 +11,7 @@ class Csvquery < Formula
   depends_on "boost"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", "."
     system "make"
     system "mv", "cql", "csvquery"
     bin.install "csvquery"
