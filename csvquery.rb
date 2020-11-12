@@ -3,15 +3,15 @@
 class Csvquery < Formula
   desc "SQL interpreter for big csv files"
   homepage "https://davosaur.com/csv"
-  url "https://github.com/dvhar/csvquery/archive/1.10.tar.gz"
-  sha256 "23888ec04b3b8a0784d0c0a41a4fdc9ec3a277bb489f142e9baad97bd3c0b698"
+  url "https://github.com/dvhar/csvquery/archive/1.11.tar.gz"
+  sha256 "67fa3a7e1ed071b63ddd1ba841e03aa3469723378d0e3bbfda636902b4019bc6"
   license ""
 
   depends_on "cmake" => :build
   depends_on "boost"
 
   def install
-    system "cmake", "."
+    system "cmake", ".", *std_cmake_args
     system "make"
     system "mv", "cql", "csvquery"
     bin.install "csvquery"
