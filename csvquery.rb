@@ -5,7 +5,7 @@ class Csvquery < Formula
   homepage "https://davosaur.com/csv"
   url "https://github.com/dvhar/csvquery/archive/1.24.tar.gz"
   sha256 "3c1748d70aa5b8a09e4854ba8ba2f699830e84af7be65bba2964ad288cee51f2"
-  license "MIT"
+  license "GLP-3"
 
   depends_on "cmake" => :build
   depends_on "boost"
